@@ -442,26 +442,46 @@ ${traits}
                 <span>{t("tip")}</span>
               </div>
             </div>
-            {showDonateBtn && (
-              <Button
-                className={cn(
-                  "gap-2 whitespace-nowrap",
-                  isMobile ? "w-full justify-center rounded-full py-3" : "px-4",
-                )}
-                size={isMobile ? "lg" : "default"}
-                variant="secondary"
-                asChild
+
+            <Button
+              className={cn(
+                "gap-2 whitespace-nowrap",
+                isMobile ? "w-full justify-center rounded-full py-3" : "px-4",
+              )}
+              size={isMobile ? "lg" : "default"}
+              variant="secondary"
+              asChild
+            >
+              <a
+                href="https://github.com/cubewhy/skid-homework/discussions"
+                target="_blank"
+                rel="noreferrer"
               >
-                <a
-                  href="https://996every.day/donate"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <StarIcon className="h-4 w-4" />
-                  {t("donate-btn")}
-                </a>
-              </Button>
-            )}
+                <StarIcon className="h-4 w-4" />
+                {t("discussions-btn")}
+              </a>
+            </Button>
+
+            {/* {showDonateBtn && ( */}
+            {/*   <Button */}
+            {/*     className={cn( */}
+            {/*       "gap-2 whitespace-nowrap", */}
+            {/*       isMobile ? "w-full justify-center rounded-full py-3" : "px-4", */}
+            {/*     )} */}
+            {/*     size={isMobile ? "lg" : "default"} */}
+            {/*     variant="secondary" */}
+            {/*     asChild */}
+            {/*   > */}
+            {/*     <a */}
+            {/*       href="https://996every.day/donate" */}
+            {/*       target="_blank" */}
+            {/*       rel="noreferrer" */}
+            {/*     > */}
+            {/*       <StarIcon className="h-4 w-4" /> */}
+            {/*       {t("donate-btn")} */}
+            {/*     </a> */}
+            {/*   </Button> */}
+            {/* )} */}
           </header>
 
           {isMobile && (

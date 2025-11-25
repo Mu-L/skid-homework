@@ -30,6 +30,7 @@
   },
   "scan-page": {
     "donate-btn": "Donate now",
+    "discussions-btn": "Discussions",
     "title": "Scan your homework",
     "tip": "We never upload without your action.",
     "mobile": {

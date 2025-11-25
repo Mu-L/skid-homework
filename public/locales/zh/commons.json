@@ -30,6 +30,7 @@
   },
   "scan-page": {
     "donate-btn": "现在赞助",
+    "discussions-btn": "讨论区",
     "title": "扫描你的作业",
     "tip": "我们不会在未经授权时上传您的文件",
     "mobile": {

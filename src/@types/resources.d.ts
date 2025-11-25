@@ -187,6 +187,7 @@ interface Resources {
       }
     },
     "scan-page": {
+      "discussions-btn": "Discussions",
       "donate-btn": "Donate now",
       "errors": {
         "missing-key": "Missing API key for {{provider}}.",
