@@ -49,6 +49,13 @@ export const processImage = async (
           const ksize = new cv.Size(5, 5);
           cv.GaussianBlur(src, src, ksize, 0, 0, cv.BORDER_DEFAULT);
 
+          const kernel = cv.getStructuringElement(
+            cv.MORPH_RECT,
+            new cv.Size(3, 3),
+          );
+          cv.morphologyEx(src, src, cv.MORPH_CLOSE, kernel);
+          cv.morphologyEx(src, src, cv.MORPH_OPEN, kernel);
+
           cv.adaptiveThreshold(
             src,
             dst,
