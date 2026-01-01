@@ -553,6 +553,10 @@
     "placeholder": "例如：请添加更详细的步骤……",
     "submit": "提交",
     "toasts": {
+      "post-processing": {
+        "title": "还在处理...",
+        "description": "图片预处理还在运行, 请再等等"
+      },
       "no-key": {
         "title": "就差一步",
         "description": "请在设置中为 {{provider}} 设置 API 密钥后再尝试。"

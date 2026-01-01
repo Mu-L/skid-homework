@@ -263,6 +263,10 @@ interface Resources {
           "description": "Enable a Gemini source to process PDF files.",
           "title": "PDF uploads disabled"
         },
+        "post-processing": {
+          "description": "Your image was still post-processing. Please wait.",
+          "title": "Still processing..."
+        },
         "working": {
           "description": "Sending {{count}} file(s) to your AI sources...",
           "title": "Working..."

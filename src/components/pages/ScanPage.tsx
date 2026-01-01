@@ -250,6 +250,13 @@ export default function ScanPage() {
       return;
     }
 
+    if (items.filter((item) => item.status === "processing").length !== 0) {
+      toast(t("toasts.post-processing.title"), {
+        description: t("toasts.post-processing.description"),
+      });
+      return;
+    }
+
     const itemsToProcess = items.filter(
       (item) => item.status === "pending" || item.status === "failed",
     );

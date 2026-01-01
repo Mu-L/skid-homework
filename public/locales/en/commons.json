@@ -51,6 +51,10 @@
       }
     },
     "toasts": {
+      "post-processing": {
+        "title": "Still processing...",
+        "description": "Your image was still post-processing. Please wait."
+      },
       "no-model": {
         "title": "Model required",
         "description": "Please choose a model for {{provider}} in Settings before scanning."
