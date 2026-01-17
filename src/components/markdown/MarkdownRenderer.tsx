@@ -58,82 +58,82 @@ const CodeBlock = ({
   const lang = match ? match[1] : "";
   const content = String(children).replace(/\n$/, "");
 
+  // Check if the code block fence is closed (useful for streaming content)
   const isBlockComplete = (() => {
     if (!node?.position?.end) return false;
-
     const { end } = node.position;
-
     if (end.offset === undefined) return true;
-
     if (end.offset > source.length) return false;
 
     const endingFence = source.slice(end.offset - 3, end.offset);
     return endingFence === "```" || endingFence === "~~~";
   })();
 
-  let component: ReactNode;
+  const isPlot = lang.startsWith("plot-");
+  const isSvg =
+    (lang === "svg" || lang === "xml") && content.startsWith("<svg");
 
-  if (lang.startsWith("plot-")) {
-    if (!isBlockComplete) {
-      return (
-        <TextShimmer className="font-mono text-sm" duration={1}>
-          {t("generating-diagram")}
-        </TextShimmer>
-      );
-    }
+  // Handle incomplete blocks early to reduce nesting
+  if ((isPlot || isSvg) && !isBlockComplete) {
+    return (
+      <TextShimmer className="font-mono text-sm" duration={1}>
+        {t("generating-diagram")}
+      </TextShimmer>
+    );
+  }
 
+  // Handle Diagram Rendering
+  if (isPlot) {
+    let diagramContent: ReactNode;
     let realLanguage = "json";
 
-    if (lang === "plot-function") {
-      component = (
-        <div className="h-80 w-80 lg:h-100 lg:w-100">
-          <MathGraph code={content} />
-        </div>
-      );
-    }
-
-    if (lang === "plot-force") {
-      component = <ForceDiagram code={content} />;
-    }
-
-    if (lang === "plot-mermaid") {
-      component = <MermaidDiagram code={content} />;
-      realLanguage = "mermaid";
+    switch (lang) {
+      case "plot-function":
+        diagramContent = (
+          <div className="h-80 w-80 lg:h-100 lg:w-100">
+            <MathGraph code={content} />
+          </div>
+        );
+        break;
+      case "plot-force":
+        diagramContent = <ForceDiagram code={content} />;
+        break;
+      case "plot-mermaid":
+        diagramContent = <MermaidDiagram code={content} />;
+        realLanguage = "mermaid";
+        break;
+      default:
+        diagramContent = null;
     }
 
     return (
       <DiagramRenderer language={realLanguage} content={content}>
-        {component}
+        {diagramContent}
       </DiagramRenderer>
     );
-  } else if ((lang === "svg" || lang === "xml") && content.startsWith("<svg")) {
-    // svg image
-    if (!isBlockComplete) {
-      return (
-        <TextShimmer className="font-mono text-sm" duration={1}>
-          {t("generating-diagram")}
-        </TextShimmer>
-      );
-    }
+  }
 
+  // Handle SVG Rendering
+  if (isSvg) {
     const cleanSvg = DOMPurify.sanitize(content);
-
     return (
-      <DiagramRenderer language={"xml"} content={content}>
+      <DiagramRenderer language="xml" content={content}>
         <div dangerouslySetInnerHTML={{ __html: cleanSvg }} />
       </DiagramRenderer>
     );
   }
 
+  // Standard Code Block
   if (match) {
     return <CodeRenderer language={lang} content={content} />;
-  } else {
-    return (
-      <code className={cn(className, "bg-accent p-0.5 rounded")} {...props}>
-        {children}
-      </code>
-    );
   }
+
+  // Inline Code
+  return (
+    <code className={cn(className, "bg-accent p-0.5 rounded")} {...props}>
+      {children}
+    </code>
+  );
 };
 
 const components = {
