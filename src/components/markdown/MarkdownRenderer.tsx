@@ -96,6 +96,7 @@ const CodeBlock = ({
         );
         break;
       case "plot-force":
+        // deprecated, we'll introduce a new approach for physics plotting
         diagramContent = <ForceDiagram code={content} />;
         break;
       case "plot-mermaid":
