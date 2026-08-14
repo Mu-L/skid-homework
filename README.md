@@ -184,7 +184,13 @@ Gemini API Key 是免费的, 可以去申请
 
 如果这个项目节省了你的时间, 请务必献上一个 Star!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=cubewhy/skid-homework&type=Date)](https://www.star-history.com/#cubewhy/skid-homework&Date)
+<a href="https://star-history.dera.page/#cubewhy/skid-homework">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=cubewhy/skid-homework&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=cubewhy/skid-homework" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=cubewhy/skid-homework" />
+ </picture>
+</a>
 
 ## 为什么太多作业不好
 

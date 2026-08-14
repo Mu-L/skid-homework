@@ -49,7 +49,13 @@ You need to request a Gemini API key for AI usage.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=cubewhy/skid-homework&type=Date)](https://www.star-history.com/#cubewhy/skid-homework&Date)
+<a href="https://star-history.dera.page/#cubewhy/skid-homework">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=cubewhy/skid-homework&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=cubewhy/skid-homework" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=cubewhy/skid-homework" />
+ </picture>
+</a>
 
 ## I don't have a camera on my computer, please help
 
